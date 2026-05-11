@@ -1270,54 +1270,54 @@
           ✦ Message received! We'll be in touch within 24 hours.
         </div>
         <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="form-name" value="contact" />
-          <div class="form-row">
-            <div class="field-wrap">
-              <label class="field-label">First Name</label>
-              <input class="field-input" type="text" placeholder="Alex" required>
-            </div>
-            <div class="field-wrap">
-              <label class="field-label">Last Name</label>
-              <input class="field-input" type="text" placeholder="Carter" required>
-            </div>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Email Address</label>
-            <input class="field-input" type="email" placeholder="alex@company.com" required>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Company</label>
-            <input class="field-input" type="text" placeholder="Your Company Name">
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Service Needed</label>
-            <select class="field-input">
-              <option value="">Select a service</option>
-              <option>UI / UX Design</option>
-              <option>Web Development</option>
-              <option>3D & Motion</option>
-              <option>Brand Identity</option>
-              <option>Digital Strategy</option>
-              <option>Full Project</option>
-            </select>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Project Budget</label>
-            <select class="field-input">
-              <option value="">Select budget range</option>
-              <option>$299 – $999</option>
-              <option>$999 – $2,500</option>
-              <option>$2,500 – $5,000</option>
-              <option>$5,000+</option>
-            </select>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Tell Us About Your Project</label>
-            <textarea class="field-input" placeholder="Describe your vision, goals, timeline, and any details that'll help us understand your project..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send Message →</button>
-          <p class="form-note">We respect your privacy. No spam, ever.</p>
-        </form>
+  <input type="hidden" name="form-name" value="contact" />
+  <div class="form-row">
+    <div class="field-wrap">
+      <label class="field-label">First Name</label>
+      <input class="field-input" type="text" name="first-name" placeholder="Alex" required>
+    </div>
+    <div class="field-wrap">
+      <label class="field-label">Last Name</label>
+      <input class="field-input" type="text" name="last-name" placeholder="Carter" required>
+    </div>
+  </div>
+  <div class="field-wrap">
+    <label class="field-label">Email Address</label>
+    <input class="field-input" type="email" name="email" placeholder="alex@company.com" required>
+  </div>
+  <div class="field-wrap">
+    <label class="field-label">Company</label>
+    <input class="field-input" type="text" name="company" placeholder="Your Company Name">
+  </div>
+  <div class="field-wrap">
+    <label class="field-label">Service Needed</label>
+    <select class="field-input" name="service">
+      <option value="">Select a service</option>
+      <option>UI / UX Design</option>
+      <option>Web Development</option>
+      <option>3D & Motion</option>
+      <option>Brand Identity</option>
+      <option>Digital Strategy</option>
+      <option>Full Project</option>
+    </select>
+  </div>
+  <div class="field-wrap">
+    <label class="field-label">Project Budget</label>
+    <select class="field-input" name="budget">
+      <option value="">Select budget range</option>
+      <option>$299 – $999</option>
+      <option>$999 – $2,500</option>
+      <option>$2,500 – $5,000</option>
+      <option>$5,000+</option>
+    </select>
+  </div>
+  <div class="field-wrap">
+    <label class="field-label">Tell Us About Your Project</label>
+    <textarea class="field-input" name="message" placeholder="Describe your vision, goals, timeline, and any details that'll help us understand your project..."></textarea>
+  </div>
+  <button type="submit" class="form-submit">Send Message →</button>
+  <p class="form-note">We respect your privacy. No spam, ever.</p>
+</form>
       </div>
     </div>
   </div>
