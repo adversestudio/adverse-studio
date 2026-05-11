@@ -871,6 +871,38 @@
     #blog { padding: 4rem 0; }
     .blog-card-thumb { height: 150px; }
   }
+  /* ═══════════════════════════ FAQ ════════════════════════════ */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  width: 100%; background: none; border: none;
+  color: var(--txt); font-family: 'Syne', sans-serif;
+  font-size: 1rem; font-weight: 600; text-align: left;
+  padding: 1.5rem 0; display: flex; justify-content: space-between;
+  align-items: center; gap: 1rem; cursor: pointer;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--g); }
+.faq-icon {
+  color: var(--g); font-size: 1.4rem; font-weight: 300;
+  flex-shrink: 0; transition: transform 0.3s;
+}
+.faq-q.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  color: var(--muted); font-size: 0.95rem; line-height: 1.8;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0;
+}
+.faq-a.open {
+  max-height: 200px;
+  padding-bottom: 1.5rem;
+}
+.faq-a strong { color: var(--txt); }
+@media (max-width: 600px) {
+  .faq-q { font-size: 0.9rem; }
+}
 </style>
 </head>
 <body>
@@ -1417,7 +1449,98 @@
     </div>
   </div>
 </div>
+  <!-- ═══════════════ FAQ ═══════════════ -->
+<section id="faq" style="padding:8rem 0;background:var(--blk);">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3rem;">
+      <p class="section-label">Got Questions</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;">Frequently Asked <span style="color:var(--g)">Questions</span></h2>
+    </div>
+    <div class="reveal" style="max-width:800px;">
 
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How much does a 3D website cost?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          At Adverse Studio, 3D animated websites start at <strong>$299</strong> and go up to <strong>$5,000</strong> for complex multi-page builds. Every project is custom built — no templates, no shortcuts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does it take to build a website?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          We deliver fully custom 3D animated websites in as few as <strong>7 business days</strong>. Design, development, and live deployment — all included.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What technology do you use?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          We build with <strong>Three.js, WebGL, and GSAP</strong> — the same stack used by award-winning websites globally. This gives every site real-time 3D graphics and smooth animations that run directly in the browser with no plugins.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you work with clients in the USA?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Yes. Adverse Studio works with clients <strong>globally</strong> with a strong focus on US-based businesses. We communicate in your timezone and deliver on schedule regardless of location.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is included in the price?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Every package includes <strong>custom design, Three.js animations, mobile responsive layout, SEO-ready code, contact form, and live deployment</strong> — all delivered in 7 days.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I update my website after delivery?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Yes. We offer ongoing maintenance and update packages. You can request changes anytime and we handle them within <strong>24-48 hours</strong>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What makes Adverse Studio different?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          We specialize exclusively in <strong>3D animated websites using Three.js and WebGL</strong> — technology most agencies don't offer. Combined with 7-day delivery and pricing starting at $299, we make premium web experiences accessible to every business.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do 3D websites work on mobile?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Yes. Every site we build is fully optimized for mobile. We use adaptive rendering so 3D elements perform beautifully on phones and tablets without sacrificing speed.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1843,6 +1966,17 @@ document.getElementById('blog-modal-overlay').addEventListener('click', function
   }
   animate();
 })();
+  /* ── FAQ Toggle ── */
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+  }
+}
 </script>
 </body>
 </html>
