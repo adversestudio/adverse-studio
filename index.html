@@ -758,6 +758,117 @@
     .browser-preview { height: 170px; }
     .testimonial-strip { padding: 2rem 1.5rem; margin-top: 3rem; }
   }
+
+  /* ═══════════════════════════ BLOG ══════════════════════════ */
+  #blog { padding: 8rem 0; background: var(--blk2); }
+  .blog-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; margin-bottom: 4rem;
+  }
+  .blog-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+  }
+  .blog-intro { max-width: 340px; color: var(--muted); line-height: 1.7; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .blog-card {
+    background: var(--blk); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: border-color 0.3s, transform 0.3s; cursor: none;
+  }
+  .blog-card:hover { border-color: var(--g); transform: translateY(-4px); }
+  .blog-card-thumb {
+    height: 190px; background: var(--blk3);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .blog-thumb-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, #00ff8818 0%, transparent 70%);
+  }
+  .blog-thumb-icon {
+    position: relative; z-index: 2;
+    width: 64px; height: 64px; color: var(--g); opacity: 0.4;
+  }
+  .blog-card-body { padding: 1.8rem; flex: 1; display: flex; flex-direction: column; gap: 0.8rem; }
+  .blog-meta { display: flex; gap: 1rem; align-items: center; font-size: 0.72rem; color: var(--muted); }
+  .blog-category {
+    color: var(--g); font-family: 'Syne', sans-serif;
+    font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; border: 1px solid #00ff8840; border-radius: 2px;
+  }
+  .blog-title {
+    font-family: 'Syne', sans-serif; font-size: 1.1rem;
+    font-weight: 700; line-height: 1.35; color: var(--txt);
+  }
+  .blog-excerpt { color: var(--muted); font-size: 0.88rem; line-height: 1.7; flex: 1; }
+  .blog-read-more {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--g); font-size: 0.78rem; text-decoration: none;
+    font-family: 'Syne', sans-serif; letter-spacing: 0.08em;
+    text-transform: uppercase; background: none; border: none;
+    cursor: pointer; transition: gap 0.2s; padding: 0; margin-top: 0.4rem;
+  }
+  .blog-read-more:hover { gap: 0.8rem; }
+  .blog-read-more::after { content: '→'; }
+  /* Blog Modal */
+  .blog-modal-overlay {
+    position: fixed; inset: 0; z-index: 500;
+    background: #020905f2; backdrop-filter: blur(14px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem; overflow-y: auto;
+  }
+  .blog-modal-overlay.open { display: flex; }
+  .blog-modal {
+    background: var(--blk2); border: 1px solid var(--border);
+    border-radius: 6px; max-width: 780px; width: 100%;
+    padding: 3rem; position: relative; margin: auto;
+  }
+  .blog-modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: 1px solid var(--border);
+    color: var(--muted); width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; cursor: pointer; border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .blog-modal-close:hover { border-color: var(--g); color: var(--g); }
+  .blog-modal-cat {
+    font-family: 'Syne', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--g); margin-bottom: 1rem; display: inline-block;
+  }
+  .blog-modal h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800; line-height: 1.2; margin-bottom: 1rem;
+  }
+  .blog-modal-meta {
+    color: var(--muted); font-size: 0.8rem;
+    margin-bottom: 2rem; padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .blog-modal-body { color: var(--muted); line-height: 1.85; font-size: 0.97rem; }
+  .blog-modal-body h3 {
+    font-family: 'Syne', sans-serif; color: var(--txt);
+    font-size: 1.12rem; font-weight: 700; margin: 2rem 0 0.8rem;
+  }
+  .blog-modal-body p { margin-bottom: 1.2rem; }
+  .blog-modal-body ul { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+  .blog-modal-body li { margin-bottom: 0.5rem; }
+  .blog-modal-body strong { color: var(--txt); }
+  .blog-modal-cta { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+  .blog-modal-cta p { color: var(--muted); margin-bottom: 1rem; font-size: 0.9rem; }
+  @media (max-width: 900px) {
+    #blog { padding: 5rem 0; }
+    .blog-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .blog-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .blog-modal { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    #blog { padding: 4rem 0; }
+    .blog-card-thumb { height: 150px; }
+  }
 </style>
 </head>
 <body>
@@ -774,6 +885,7 @@
     <a href="#services">Services</a>
     <a href="#portfolio">Work</a>
     <a href="#process">Process</a>
+    <a href="#blog">Blog</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -785,6 +897,7 @@
   <a href="#services" class="mob-link">Services</a>
   <a href="#portfolio" class="mob-link">Work</a>
   <a href="#process" class="mob-link">Process</a>
+  <a href="#blog" class="mob-link">Blog</a>
   <a href="#contact" class="mob-link mob-cta">Contact</a>
 </div>
 
@@ -837,7 +950,7 @@
       </div>
       <div class="stats-grid reveal">
         <div class="stat-box">
-          <div class="stat-num" data-count="8">0</div>
+          <div class="stat-num" data-count="12">0</div>
           <div class="stat-label">Projects Delivered</div>
         </div>
         <div class="stat-box">
@@ -1143,15 +1256,11 @@
         <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
         <div class="contact-detail">
           <div class="contact-detail-icon">@</div>
-          <a href="mailto:hello@adversestudio.com">hello@adversestudio.com</a>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">✆</div>
-          <a href="tel:+923001234567">+92 300 123 4567</a>
+          <a href="mailto:contact@adversestudio.com">contact@adversestudio.com</a>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">◎</div>
-          <span style="color:var(--muted)">Karachi, Pakistan — Worldwide</span>
+          <span style="color:var(--muted)">Global Presence — Serving Clients Worldwide</span>
         </div>
       </div>
 
@@ -1194,10 +1303,10 @@
             <label class="field-label">Project Budget</label>
             <select class="field-input">
               <option value="">Select budget range</option>
-              <option>$799 – $2,500</option>
+              <option>$299 – $999</option>
+              <option>$999 – $2,500</option>
               <option>$2,500 – $5,000</option>
-              <option>$5,000 – $10,000</option>
-              <option>$10,000+</option>
+              <option>$5,000+</option>
             </select>
           </div>
           <div class="field-wrap">
@@ -1211,6 +1320,100 @@
     </div>
   </div>
 </section>
+
+<!-- ═══════════════ BLOG ═══════════════ -->
+<section id="blog">
+  <div class="container">
+    <div class="blog-header reveal">
+      <div>
+        <p class="section-label">Insights & Education</p>
+        <h2>From the <span style="color:var(--g)">Studio</span></h2>
+      </div>
+      <p class="blog-intro">Expert insights on 3D web experiences, Three.js, and what makes a website unforgettable in 2026.</p>
+    </div>
+    <div class="blog-grid">
+
+      <!-- Blog 1 -->
+      <div class="blog-card reveal">
+        <div class="blog-card-thumb">
+          <div class="blog-thumb-bg"></div>
+          <svg class="blog-thumb-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M32 8l24 14v20L32 56 8 42V22L32 8z"/>
+            <path d="M32 8v48M8 22l24 14 24-14"/>
+            <circle cx="32" cy="36" r="6"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-category">3D Web</span>
+            <span>May 2026 · 7 min read</span>
+          </div>
+          <h3 class="blog-title">Why 3D Websites Convert Up to 3× Better — And How to Get One in 7 Days</h3>
+          <p class="blog-excerpt">Static websites are dead. Visitors now expect depth, motion, and immersion. We break down the psychology behind 3D web and how Adverse Studio delivers it fast.</p>
+          <button class="blog-read-more" onclick="openBlog(0)">Read Article</button>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-card reveal">
+        <div class="blog-card-thumb">
+          <div class="blog-thumb-bg"></div>
+          <svg class="blog-thumb-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="8" y="14" width="48" height="36" rx="3"/>
+            <path d="M20 32l8-8 8 8 8-12"/>
+            <circle cx="20" cy="32" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-category">Three.js</span>
+            <span>Apr 2026 · 9 min read</span>
+          </div>
+          <h3 class="blog-title">Three.js in 2026: The Technology Powering the World's Most Impressive Websites</h3>
+          <p class="blog-excerpt">Three.js has moved from experimental playground to industry standard. Here's what it is, what it can do, and why it's the backbone of every site we build at Adverse.</p>
+          <button class="blog-read-more" onclick="openBlog(1)">Read Article</button>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-card reveal">
+        <div class="blog-card-thumb">
+          <div class="blog-thumb-bg"></div>
+          <svg class="blog-thumb-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="32" cy="32" r="22"/>
+            <path d="M32 10v44M10 32h44"/>
+            <path d="M18 18c8 6 20 6 28 0M18 46c8-6 20-6 28 0"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-category">Strategy</span>
+            <span>Mar 2026 · 6 min read</span>
+          </div>
+          <h3 class="blog-title">Animated Websites vs. Static Sites: The ROI Data Every Business Owner Needs to See</h3>
+          <p class="blog-excerpt">Bounce rates, session duration, conversion rates — we pulled the data. Animated, interactive websites don't just look better, they perform dramatically better. Here's the proof.</p>
+          <button class="blog-read-more" onclick="openBlog(2)">Read Article</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Blog Modal Overlay -->
+<div class="blog-modal-overlay" id="blog-modal-overlay">
+  <div class="blog-modal">
+    <button class="blog-modal-close" onclick="closeBlog()">✕</button>
+    <span class="blog-modal-cat" id="modal-cat"></span>
+    <h2 id="modal-title"></h2>
+    <p class="blog-modal-meta" id="modal-meta"></p>
+    <div class="blog-modal-body" id="modal-body"></div>
+    <div class="blog-modal-cta">
+      <p>Ready to elevate your brand with a 3D animated website? We deliver in 7 days — starting at just $299.</p>
+      <a href="#contact" class="btn-primary" onclick="closeBlog()" style="display:inline-block;">Start Your Project →</a>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1242,14 +1445,14 @@
       <div>
         <p class="footer-col-title">Contact</p>
         <div class="footer-links">
-          <a href="mailto:hello@adversestudio.com">hello@adversestudio.com</a>
-          <a href="tel:+923001234567">+92 300 123 4567</a>
-          <a href="#">Karachi, Pakistan</a>
+          <a href="mailto:contact@adversestudio.com">contact@adversestudio.com</a>
+          <a href="#">Global Presence</a>
+          <a href="#blog">Blog</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Adverse Studio. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Adverse Studio. All rights reserved.</p>
       <div class="footer-socials">
         <a href="#" class="social-btn">in</a>
         <a href="#" class="social-btn">tw</a>
@@ -1329,6 +1532,107 @@ function handleSubmit(e) {
   document.getElementById('contact-form').style.display='none';
   document.getElementById('success-msg').style.display='block';
 }
+
+/* ── Blog ── */
+const blogs = [
+  {
+    cat: 'Three.js · 3D Web Design',
+    title: 'Why 3D Websites Convert Up to 3× Better — And How to Get One in 7 Days',
+    meta: 'By Adverse Studio · May 2026 · 7 min read',
+    body: `
+      <p>The internet is saturated. Every business has a website. Most look identical — stock photos, hero sections, a blue CTA button. So how do you make visitors stop scrolling and actually <strong>pay attention</strong>?</p>
+      <p>The answer, backed by UX research and engagement data, is depth, motion, and immersion. In short: <strong>3D web design</strong>.</p>
+      <h3>The Psychology of Depth</h3>
+      <p>Human vision evolved in a three-dimensional world. Our brains are wired to pay more attention to things that have perceived depth, parallax, and movement — they signal "this is real, this is important." When a website has interactive 3D elements, the brain engages differently than with a flat page. Sessions run longer. Bounce rates drop. Conversions rise.</p>
+      <p>Multiple studies in digital UX have found that websites with motion and dimensionality can improve time-on-site by <strong>40–70%</strong>, and conversion rates by up to <strong>3×</strong> compared to static equivalents in the same industry.</p>
+      <h3>What "3D Website" Actually Means</h3>
+      <p>A 3D website doesn't mean everything spins and flashes. The best implementations are <strong>elegant and purposeful</strong> — a rotating product, a particle field that reacts to your cursor, a geometric shape that breathes in the hero section. The technology (typically WebGL via Three.js) runs directly in your browser with no plugins required.</p>
+      <ul>
+        <li><strong>Hero animations</strong> — Wire-frame geometries, particle systems, and shader effects that create atmosphere without distraction</li>
+        <li><strong>Scroll-driven 3D</strong> — Elements that respond as visitors scroll, creating cinematic storytelling</li>
+        <li><strong>Interactive product viewers</strong> — Drag-to-rotate 3D models of physical products</li>
+        <li><strong>Ambient backgrounds</strong> — Subtle, GPU-powered environments that make every page feel alive</li>
+      </ul>
+      <h3>Why 7 Days?</h3>
+      <p>At Adverse Studio, we've engineered our workflow so that a complete, custom 3D animated website can go from brief to live in <strong>as few as 7 business days</strong>. We have reusable Three.js components, a battle-tested design system, and a team that works in parallel: design, development, and QA happening simultaneously rather than sequentially.</p>
+      <p>Our budget range starts at <strong>$299</strong> for focused single-page builds and scales to <strong>$5,000+</strong> for complex multi-page applications with custom 3D scenes. Every project — regardless of budget — gets the same obsessive attention to detail.</p>
+      <h3>The Business Case</h3>
+      <p>If your website currently converts at 2% and a 3D redesign lifts that to 4%, you've <strong>doubled your revenue from the same traffic</strong>. For most businesses, the investment pays itself back within the first month. That's not a sales pitch — that's arithmetic.</p>
+      <p>The question isn't whether you can afford a 3D website. It's whether you can afford to keep losing ground to competitors who already have one.</p>
+    `
+  },
+  {
+    cat: 'Three.js · Technology',
+    title: 'Three.js in 2026: The Technology Powering the World\'s Most Impressive Websites',
+    meta: 'By Adverse Studio · April 2026 · 9 min read',
+    body: `
+      <p>If you've visited an award-winning website lately and thought "how did they do that?" — there's a strong chance the answer is <strong>Three.js</strong>. It's the JavaScript library that brings real-time 3D graphics to the browser, and in 2026 it's no longer an experimental curiosity — it's the industry standard for premium web experiences.</p>
+      <h3>What Is Three.js?</h3>
+      <p>Three.js is an open-source JavaScript library that acts as a wrapper around WebGL, the browser's native 3D rendering API. WebGL is incredibly powerful but also notoriously complex to use directly — Three.js abstracts that complexity into clean, readable code that lets developers focus on <em>what</em> they're building rather than the low-level rendering pipeline.</p>
+      <p>The result: real-time 3D graphics running at 60fps directly in your browser, on any device, with zero plugins. No Unity. No Flash. No app download. Just the web.</p>
+      <h3>What Three.js Can Do</h3>
+      <ul>
+        <li><strong>Particle systems</strong> — Thousands of animated points that form constellations, smoke, liquid, or abstract environments</li>
+        <li><strong>Shader materials</strong> — GPU-programmed surface effects: holographic glass, liquid metal, plasma, and custom textures impossible in CSS</li>
+        <li><strong>Physics simulations</strong> — Objects that bounce, collide, and drip realistically using physics engines integrated with Three.js</li>
+        <li><strong>GLTF model loading</strong> — Import high-fidelity 3D models from Blender or Cinema4D directly into the browser</li>
+        <li><strong>Post-processing</strong> — Bloom, depth-of-field, chromatic aberration, and other cinematic effects applied in real-time</li>
+        <li><strong>Environment maps & PBR</strong> — Physically-based rendering for photorealistic reflections and lighting</li>
+      </ul>
+      <h3>The Performance Question</h3>
+      <p>A common concern is performance — won't 3D slow down my website? Done correctly: <strong>no</strong>. At Adverse Studio, every Three.js scene is profiled and optimised for performance. We set pixel ratio caps to protect mobile devices, use LOD (Level of Detail) techniques to reduce polygon counts on smaller screens, and lazy-load 3D scenes so they don't block core page content.</p>
+      <p>A well-built Three.js site can still score <strong>90+ on Google PageSpeed</strong> on mobile, which means no SEO penalty — you get the visual impact without the performance trade-off.</p>
+      <h3>Three.js + GSAP: The Combination That Wins Awards</h3>
+      <p>Three.js handles the 3D canvas. GSAP (GreenSock Animation Platform) handles the orchestration — scroll triggers, timeline animations, hover states, and page transitions. Together they create the "this site feels impossible" effect you see on Awwwards and CSS Design Awards.</p>
+      <p>This is precisely the stack Adverse Studio uses. Every site we build leverages this combination, which is why our work stands out in a sea of template-based competitors.</p>
+      <h3>Is Three.js Right for Your Business?</h3>
+      <p>If your brand needs to communicate innovation, quality, luxury, or technical sophistication — and frankly, <em>most</em> businesses benefit from at least one of those — then yes. Three.js elements don't need to dominate your site. Even a single, well-placed 3D hero element transforms how visitors perceive your brand the moment they land.</p>
+      <p>We work with businesses across every vertical: e-commerce, SaaS, hospitality, real estate, fashion, and professional services. Budget starts at <strong>$299</strong>. Delivery in <strong>7 days</strong>. Results that last.</p>
+    `
+  },
+  {
+    cat: 'Strategy · Conversion',
+    title: 'Animated Websites vs. Static Sites: The ROI Data Every Business Owner Needs to See',
+    meta: 'By Adverse Studio · March 2026 · 6 min read',
+    body: `
+      <p>Every web design decision is ultimately a business decision. So instead of talking about aesthetics, let's talk about numbers — because the data on animated, interactive websites is compelling enough that every business owner should see it.</p>
+      <h3>The Core Metrics</h3>
+      <p>When comparing animated/interactive websites against static equivalents across similar industries and traffic sources, the patterns are consistent:</p>
+      <ul>
+        <li><strong>Bounce rate:</strong> Animated sites see 25–45% lower bounce rates. Visitors who interact with a 3D element or watch an entrance animation are far less likely to immediately leave.</li>
+        <li><strong>Session duration:</strong> Average time on site increases by 50–80% when pages have meaningful motion. More time on site means more opportunity to convert.</li>
+        <li><strong>Conversion rate:</strong> Across e-commerce and lead-gen sites, conversion rates are typically 1.5× to 3× higher on animated sites versus their static counterparts in the same category.</li>
+        <li><strong>Return visitor rate:</strong> People come back to websites that feel memorable. A distinctive animated experience gets bookmarked and shared; a generic template does not.</li>
+      </ul>
+      <h3>Why Motion Works Psychologically</h3>
+      <p>Motion captures <strong>attention automatically</strong>. The human visual system is wired to notice movement — it's a survival instinct. When a website element moves purposefully, the eye follows. When scroll reveals content dramatically, visitors continue scrolling. This isn't manipulation; it's working with human psychology rather than against it.</p>
+      <p>Additionally, high-quality animation signals <strong>investment and credibility</strong>. A business that has a beautiful, polished animated website appears more established, more premium, and more trustworthy than one with a $15 template. In a world where visitors make unconscious trust decisions in under 50 milliseconds, your visual presentation is everything.</p>
+      <h3>The SEO Picture</h3>
+      <p>A common myth is that animated websites hurt SEO. This is outdated thinking. Google's Core Web Vitals focus on <strong>Largest Contentful Paint (LCP)</strong>, <strong>Interaction to Next Paint (INP)</strong>, and <strong>Cumulative Layout Shift (CLS)</strong> — metrics that measure user experience, not the presence or absence of animation.</p>
+      <p>At Adverse Studio, our builds separate 3D canvas elements from core content, ensure animations don't cause layout shift, and optimise for fast initial loads. Our sites consistently achieve strong Core Web Vital scores and maintain healthy search rankings.</p>
+      <h3>What This Means for Your Budget</h3>
+      <p>At Adverse Studio, a professionally built animated website starts at <strong>$299</strong> and scales based on complexity up to <strong>$5,000</strong> for large multi-page experiences. Given that even a modest improvement in conversion rate — say, 1% to 2% — can represent tens of thousands in additional annual revenue for most businesses, the ROI calculation is usually straightforward.</p>
+      <p>We also move fast. <strong>7-day delivery</strong> means you're not waiting months to start seeing results. The data is clear. The technology is mature. The only question is whether you're ready to give your brand the digital presence it deserves.</p>
+    `
+  }
+];
+
+function openBlog(idx) {
+  const b = blogs[idx];
+  document.getElementById('modal-cat').textContent = b.cat;
+  document.getElementById('modal-title').textContent = b.title;
+  document.getElementById('modal-meta').textContent = b.meta;
+  document.getElementById('modal-body').innerHTML = b.body;
+  document.getElementById('blog-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBlog() {
+  document.getElementById('blog-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('blog-modal-overlay').addEventListener('click', function(e) {
+  if(e.target === this) closeBlog();
+});
 
 /* ══════════════════════════════════════════
    THREE.JS — HERO CANVAS
