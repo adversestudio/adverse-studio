@@ -1530,17 +1530,18 @@ document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
 
 /* ── Form submit ── */
 function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(new FormData(e.target)).toString()
+    body: new URLSearchParams(new FormData(form)).toString()
   })
   .then(() => {
     document.getElementById('contact-form').style.display='none';
     document.getElementById('success-msg').style.display='block';
   })
-  .catch(error => alert('Error submitting form. Please try again.'));
-  e.preventDefault();
+  .catch(() => alert('Error submitting. Please try again.'));
 }
 /* ── Blog ── */
 const blogs = [
